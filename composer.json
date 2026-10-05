@@ -1,0 +1,25 @@
+{
+    "name": "ultimate/zetsu",
+    "description": "The last dance",
+    "authors": [
+        {
+            "name": "zetsu"
+        }
+    ],
+    "require": {
+        "altorouter/altorouter": "^2.0",
+        "firebase/php-jwt": "^7.2",
+        "cboden/ratchet": "^0.4.4",
+        "guzzlehttp/guzzle": "^7.15",
+        "robmorgan/phinx": "^0.16.12",
+        "crunzphp/crunz": "^3.9",
+        "predis/predis": "^3.6",
+        "vlucas/phpdotenv": "^5.7"
+    },
+    "require-dev": {
+        "symfony/var-dumper": "^8.1",
+        "filp/whoops": "^2.18",
+        "phpunit/phpunit": "^13.4",
+        "fakerphp/faker": "^1.24"
+    }
+}
