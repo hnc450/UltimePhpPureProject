@@ -1,0 +1,33 @@
+.view--chats .app-header {
+  flex-wrap: wrap;
+  gap: var(--space-3);
+}
+
+.view--chats .app-header .search {
+  flex: 1 1 100%;
+  order: 3;
+}
+
+.chat-list .list-row.is-unread .list-row__title {
+  font-weight: var(--fw-bold);
+}
+
+.chat-list .list-row.is-unread .list-row__preview {
+  color: var(--color-text);
+  font-weight: var(--fw-medium);
+}
+
+.chat-list .list-row.is-unread .list-row__time {
+  color: var(--color-primary);
+  font-weight: var(--fw-semibold);
+}
+
+.pinned-label {
+  padding: var(--space-2) var(--space-4);
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-semibold);
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  background: var(--color-bg);
+}

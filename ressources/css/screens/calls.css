@@ -1,0 +1,89 @@
+.view--call {
+  background: var(--color-call-bg);
+  color: #fff;
+}
+
+.view--call .app-header {
+  background: transparent;
+  border: 0;
+  color: #fff;
+}
+
+.view--call .btn--icon {
+  background: rgba(255, 255, 255, 0.12);
+  color: #fff;
+}
+
+.call-stage {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-4);
+  padding: var(--space-6);
+  text-align: center;
+}
+
+.call-stage h2 {
+  font-size: var(--fs-xl);
+}
+
+.call-stage p {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.call-controls {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-5);
+  padding: var(--space-6) var(--space-4) calc(var(--space-8) + var(--safe-bottom));
+}
+
+.call-controls .btn--icon {
+  width: 56px;
+  height: 56px;
+  min-height: 56px;
+  background: rgba(255, 255, 255, 0.14);
+}
+
+.call-controls .btn--danger {
+  background: var(--color-danger);
+}
+
+.video-stage {
+  position: relative;
+  flex: 1;
+  background:
+    linear-gradient(180deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.55)),
+    radial-gradient(circle at 50% 30%, #3a3a4a, #111);
+}
+
+.video-pip {
+  position: absolute;
+  top: calc(var(--header-h) + var(--space-3));
+  right: var(--space-4);
+  width: 96px;
+  height: 128px;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  background: #2a2a32;
+  box-shadow: var(--shadow-md);
+  border: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+.video-pip .avatar {
+  width: 100%;
+  height: 100%;
+  border-radius: 0;
+}
+
+.call-history .list-row__preview {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.call-history .missed {
+  color: var(--color-danger);
+}

@@ -1,0 +1,1108 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>E-Chat</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/tokens.css" />
+  <link rel="stylesheet" href="../css/base.css" />
+  <link rel="stylesheet" href="../css/components.css" />
+  <link rel="stylesheet" href="../css/screens/auth.css" />
+  <link rel="stylesheet" href="../css/screens/chats.css" />
+  <link rel="stylesheet" href="../css/screens/conversation.css" />
+  <link rel="stylesheet" href="../css/screens/calls.css" />
+  <link rel="stylesheet" href="../css/screens/contacts.css" />
+  <link rel="stylesheet" href="../css/screens/settings.css" />
+</head>
+<body>
+  <div hidden>
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none">
+  <symbol id="i-chat" viewBox="0 0 24 24">
+    <path d="M21 12a8 8 0 0 1-8 8H7l-4 3V12a8 8 0 1 1 18 0Z"/>
+  </symbol>
+  <symbol id="i-phone" viewBox="0 0 24 24">
+    <path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.3 1.8.6 2.6a2 2 0 0 1-.5 2.1L8 9.6a16 16 0 0 0 6.4 6.4l1.2-1.2a2 2 0 0 1 2.1-.5c.8.3 1.7.5 2.6.6A2 2 0 0 1 22 16.9Z"/>
+  </symbol>
+  <symbol id="i-users" viewBox="0 0 24 24">
+    <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/>
+    <circle cx="9" cy="7" r="4"/>
+    <path d="M22 21v-2a4 4 0 0 0-3-3.9"/>
+    <path d="M16 3.1a4 4 0 0 1 0 7.8"/>
+  </symbol>
+  <symbol id="i-settings" viewBox="0 0 24 24">
+    <circle cx="12" cy="12" r="3"/>
+    <path d="M12 1v2M12 21v2M4.2 4.2l1.4 1.4M18.4 18.4l1.4 1.4M1 12h2M21 12h2M4.2 19.8l1.4-1.4M18.4 5.6l1.4-1.4"/>
+  </symbol>
+  <symbol id="i-search" viewBox="0 0 24 24">
+    <circle cx="11" cy="11" r="7"/>
+    <path d="m20 20-3.5-3.5"/>
+  </symbol>
+  <symbol id="i-plus" viewBox="0 0 24 24">
+    <path d="M12 5v14M5 12h14"/>
+  </symbol>
+  <symbol id="i-back" viewBox="0 0 24 24">
+    <path d="m15 18-6-6 6-6"/>
+  </symbol>
+  <symbol id="i-video" viewBox="0 0 24 24">
+    <rect x="2" y="6" width="14" height="12" rx="2"/>
+    <path d="m16 10 6-3v10l-6-3z"/>
+  </symbol>
+  <symbol id="i-mic" viewBox="0 0 24 24">
+    <rect x="9" y="2" width="6" height="12" rx="3"/>
+    <path d="M5 11a7 7 0 0 0 14 0M12 18v4M8 22h8"/>
+  </symbol>
+  <symbol id="i-send" viewBox="0 0 24 24">
+    <path d="m22 2-7 20-4-9-9-4Z"/>
+    <path d="M22 2 11 13"/>
+  </symbol>
+  <symbol id="i-emoji" viewBox="0 0 24 24">
+    <circle cx="12" cy="12" r="9"/>
+    <path d="M8 14s1.5 2 4 2 4-2 4-2M9 9h.01M15 9h.01"/>
+  </symbol>
+  <symbol id="i-attach" viewBox="0 0 24 24">
+    <path d="m21.4 11.6-9.2 9.2a5 5 0 0 1-7.1-7.1l9.2-9.2a3.2 3.2 0 0 1 4.5 4.5l-9.2 9.2a1.4 1.4 0 0 1-2-2l8.5-8.5"/>
+  </symbol>
+  <symbol id="i-more" viewBox="0 0 24 24">
+    <circle cx="12" cy="5" r="1"/>
+    <circle cx="12" cy="12" r="1"/>
+    <circle cx="12" cy="19" r="1"/>
+  </symbol>
+  <symbol id="i-sun" viewBox="0 0 24 24">
+    <circle cx="12" cy="12" r="4"/>
+    <path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/>
+  </symbol>
+  <symbol id="i-moon" viewBox="0 0 24 24">
+    <path d="M21 14.5A8.5 8.5 0 0 1 9.5 3 7 7 0 1 0 21 14.5Z"/>
+  </symbol>
+  <symbol id="i-check" viewBox="0 0 24 24">
+    <path d="m5 12 5 5L20 7"/>
+  </symbol>
+  <symbol id="i-camera" viewBox="0 0 24 24">
+    <path d="M4 8h3l2-3h6l2 3h3a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2v-9a2 2 0 0 1 2-2Z"/>
+    <circle cx="12" cy="13" r="3.5"/>
+  </symbol>
+  <symbol id="i-fingerprint" viewBox="0 0 24 24">
+    <path d="M12 11a4 4 0 0 0-4 4v1"/>
+    <path d="M12 7a8 8 0 0 0-8 8"/>
+    <path d="M12 7a8 8 0 0 1 8 8v1"/>
+    <path d="M12 14v4"/>
+    <path d="M8.5 15.5c.5 2 1.7 3.5 3.5 4.5"/>
+    <path d="M15.5 15.5c-.4 1.7-1.3 3-2.5 4"/>
+  </symbol>
+  <symbol id="i-face" viewBox="0 0 24 24">
+    <rect x="4" y="4" width="16" height="16" rx="4"/>
+    <circle cx="9" cy="10" r="1"/>
+    <circle cx="15" cy="10" r="1"/>
+    <path d="M9 15c.8.8 1.8 1.2 3 1.2s2.2-.4 3-1.2"/>
+  </symbol>
+  <symbol id="i-lock" viewBox="0 0 24 24">
+    <rect x="4" y="10" width="16" height="11" rx="2"/>
+    <path d="M8 10V7a4 4 0 0 1 8 0v3"/>
+  </symbol>
+  <symbol id="i-bell" viewBox="0 0 24 24">
+    <path d="M6 9a6 6 0 1 1 12 0c0 7 3 7 3 7H3s3 0 3-7"/>
+    <path d="M10 20a2 2 0 0 0 4 0"/>
+  </symbol>
+  <symbol id="i-help" viewBox="0 0 24 24">
+    <circle cx="12" cy="12" r="9"/>
+    <path d="M9.1 9a3 3 0 1 1 4.4 2.6c-.9.5-1.5 1.1-1.5 2.1V14"/>
+    <path d="M12 17h.01"/>
+  </symbol>
+  <symbol id="i-globe" viewBox="0 0 24 24">
+    <circle cx="12" cy="12" r="9"/>
+    <path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/>
+  </symbol>
+  <symbol id="i-calendar" viewBox="0 0 24 24">
+    <rect x="3" y="5" width="18" height="16" rx="2"/>
+    <path d="M16 3v4M8 3v4M3 11h18"/>
+  </symbol>
+  <symbol id="i-shop" viewBox="0 0 24 24">
+    <path d="M4 9h16l-1.5 11h-13Z"/>
+    <path d="M8 9V7a4 4 0 0 1 8 0v2"/>
+  </symbol>
+  <symbol id="i-mute" viewBox="0 0 24 24">
+    <path d="M11 5 6 9H3v6h3l5 4Z"/>
+    <path d="m22 9-6 6M16 9l6 6"/>
+  </symbol>
+  <symbol id="i-speaker" viewBox="0 0 24 24">
+    <path d="M11 5 6 9H3v6h3l5 4Z"/>
+    <path d="M15.5 8.5a5 5 0 0 1 0 7M18.5 6a9 9 0 0 1 0 12"/>
+  </symbol>
+  <symbol id="i-end-call" viewBox="0 0 24 24">
+    <path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.3 1.8.6 2.6a2 2 0 0 1-.5 2.1L8 9.6a16 16 0 0 0 6.4 6.4l1.2-1.2a2 2 0 0 1 2.1-.5c.8.3 1.7.5 2.6.6A2 2 0 0 1 22 16.9Z"/>
+  </symbol>
+  <symbol id="i-chevron" viewBox="0 0 24 24">
+    <path d="m9 18 6-6-6-6"/>
+  </symbol>
+  <symbol id="i-mail" viewBox="0 0 24 24">
+    <rect x="3" y="5" width="18" height="14" rx="2"/>
+    <path d="m3 7 9 6 9-6"/>
+  </symbol>
+  <symbol id="i-trash" viewBox="0 0 24 24">
+    <path d="M3 6h18M8 6V4h8v2M19 6l-1 14H6L5 6"/>
+  </symbol>
+  <symbol id="i-edit" viewBox="0 0 24 24">
+    <path d="M12 20h9"/>
+    <path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z"/>
+  </symbol>
+  <symbol id="i-incoming" viewBox="0 0 24 24">
+    <path d="M15 9 5 19"/>
+    <path d="M5 11v8h8"/>
+  </symbol>
+  <symbol id="i-outgoing" viewBox="0 0 24 24">
+    <path d="M9 15 19 5"/>
+    <path d="M11 5h8v8"/>
+  </symbol>
+</svg>
+
+  </div>
+
+  <div class="app-stage">
+    <div class="phone" id="app">
+      <div class="phone__status" aria-hidden="true">
+        <span>9:41</span>
+        <span>●●●  LTE</span>
+      </div>
+
+      <button class="theme-switch" type="button" data-theme-toggle aria-label="Basculer le thème">
+        <svg class="icon icon--sm" data-theme-icon><use href="#i-moon"></use></svg>
+      </button>
+
+      <div class="phone__viewport">
+        <!-- SPLASH -->
+        <section class="view view--splash is-active" data-view="splash" aria-label="Splash">
+          <div class="logo-mark" data-icon="i-chat" data-icon-size="lg"></div>
+          <h1>E-Chat</h1>
+          <p>Connect. Chat. Share.</p>
+        </section>
+
+        <!-- ONBOARDING -->
+        <section class="view view--onboarding" data-view="onboarding" aria-label="Onboarding">
+          <div class="auth-hero">
+            <div class="logo-mark" data-icon="i-chat" data-icon-size="lg"></div>
+            <h1>Welcome to E-Chat</h1>
+            <p>Message friends, join groups, and stay connected with light &amp; dark themes.</p>
+          </div>
+          <div class="auth-actions">
+            <button class="btn btn--primary btn--block" type="button" data-go="login">Get Started</button>
+            <button class="btn btn--ghost btn--block" type="button" data-go="signup">Create account</button>
+          </div>
+        </section>
+
+        <!-- LOGIN -->
+        <section class="view auth-screen" data-view="login" aria-label="Login">
+          <header class="app-header">
+            <button class="btn btn--icon" type="button" data-back aria-label="Retour"><span data-icon="i-back"></span></button>
+            <h1 class="app-header__title">Login</h1>
+          </header>
+          <div class="view__scroll">
+            <form class="auth-screen__body" data-auth-form="otp">
+              <div>
+                <h1>Welcome back</h1>
+                <p class="text-secondary">Sign in to continue chatting</p>
+              </div>
+              <div class="field">
+                <label class="field__label" for="login-email">Email</label>
+                <input class="field__control" id="login-email" type="email" placeholder="you@email.com" required />
+              </div>
+              <div class="field">
+                <label class="field__label" for="login-password">Password</label>
+                <input class="field__control" id="login-password" type="password" placeholder="••••••••" required />
+              </div>
+              <a href="#/forgot" data-go="forgot">Forgot password?</a>
+              <button class="btn btn--primary btn--block" type="submit">Sign In</button>
+              <div class="divider-text">or continue with</div>
+              <div class="social-row">
+                <button class="social-btn" type="button" aria-label="Google" data-go="chats"><strong>G</strong></button>
+                <button class="social-btn" type="button" aria-label="Apple" data-go="chats"><strong>⌘</strong></button>
+                <button class="social-btn" type="button" aria-label="Facebook" data-go="chats"><strong>f</strong></button>
+              </div>
+              <p class="auth-footer">Don’t have an account? <a href="#/signup" data-go="signup">Sign up</a></p>
+            </form>
+          </div>
+        </section>
+
+        <!-- SIGNUP -->
+        <section class="view auth-screen" data-view="signup" aria-label="Sign up">
+          <header class="app-header">
+            <button class="btn btn--icon" type="button" data-back aria-label="Retour"><span data-icon="i-back"></span></button>
+            <h1 class="app-header__title">Sign Up</h1>
+          </header>
+          <div class="view__scroll">
+            <form class="auth-screen__body" data-auth-form="otp">
+              <div>
+                <h1>Create account</h1>
+                <p class="text-secondary">Join E-Chat in a few steps</p>
+              </div>
+              <div class="field">
+                <label class="field__label" for="signup-name">Full name</label>
+                <input class="field__control" id="signup-name" type="text" placeholder="Alex Jordan" required />
+              </div>
+              <div class="field">
+                <label class="field__label" for="signup-email">Email</label>
+                <input class="field__control" id="signup-email" type="email" placeholder="you@email.com" required />
+              </div>
+              <div class="field">
+                <label class="field__label" for="signup-password">Password</label>
+                <input class="field__control" id="signup-password" type="password" placeholder="••••••••" required />
+              </div>
+              <button class="btn btn--primary btn--block" type="submit">Create Account</button>
+              <p class="auth-footer">Already have an account? <a href="#/login" data-go="login">Login</a></p>
+            </form>
+          </div>
+        </section>
+
+        <!-- FORGOT -->
+        <section class="view auth-screen" data-view="forgot" aria-label="Forgot password">
+          <header class="app-header">
+            <button class="btn btn--icon" type="button" data-back aria-label="Retour"><span data-icon="i-back"></span></button>
+            <h1 class="app-header__title">Forgot Password</h1>
+          </header>
+          <div class="view__scroll">
+            <form class="auth-screen__body" data-auth-form="otp">
+              <div>
+                <h1>Reset password</h1>
+                <p class="text-secondary">Enter your email and we’ll send a verification code.</p>
+              </div>
+              <div class="field">
+                <label class="field__label" for="forgot-email">Email</label>
+                <input class="field__control" id="forgot-email" type="email" placeholder="you@email.com" required />
+              </div>
+              <button class="btn btn--primary btn--block" type="submit">Send Code</button>
+            </form>
+          </div>
+        </section>
+
+        <!-- OTP -->
+        <section class="view auth-screen" data-view="otp" aria-label="OTP verification">
+          <header class="app-header">
+            <button class="btn btn--icon" type="button" data-back aria-label="Retour"><span data-icon="i-back"></span></button>
+            <h1 class="app-header__title">Verification</h1>
+          </header>
+          <div class="view__scroll">
+            <div class="auth-screen__body">
+              <div>
+                <h1>Enter OTP</h1>
+                <p class="text-secondary">We sent a 4-digit code to your email</p>
+              </div>
+              <div class="otp-row" role="group" aria-label="Code OTP">
+                <input class="otp-input" data-otp maxlength="1" inputmode="numeric" />
+                <input class="otp-input" data-otp maxlength="1" inputmode="numeric" />
+                <input class="otp-input" data-otp maxlength="1" inputmode="numeric" />
+                <input class="otp-input" data-otp maxlength="1" inputmode="numeric" />
+              </div>
+              <button class="btn btn--primary btn--block" type="button" data-go="pin">Verify</button>
+              <p class="text-center text-secondary">Didn’t receive code? <a href="#/otp">Resend</a></p>
+            </div>
+          </div>
+        </section>
+
+        <!-- PIN -->
+        <section class="view auth-screen" data-view="pin" aria-label="PIN setup">
+          <header class="app-header">
+            <button class="btn btn--icon" type="button" data-back aria-label="Retour"><span data-icon="i-back"></span></button>
+            <h1 class="app-header__title">Create PIN</h1>
+          </header>
+          <div class="view__scroll">
+            <div class="auth-screen__body text-center">
+              <div>
+                <h1>Set a 4-digit PIN</h1>
+                <p class="text-secondary">Secure your chats with a quick unlock code</p>
+              </div>
+              <div class="pin-dots" aria-hidden="true">
+                <span class="pin-dot" data-pin-dot></span>
+                <span class="pin-dot" data-pin-dot></span>
+                <span class="pin-dot" data-pin-dot></span>
+                <span class="pin-dot" data-pin-dot></span>
+              </div>
+            </div>
+            <div class="keypad">
+              <button class="keypad__key" type="button" data-pin-key="1">1</button>
+              <button class="keypad__key" type="button" data-pin-key="2">2</button>
+              <button class="keypad__key" type="button" data-pin-key="3">3</button>
+              <button class="keypad__key" type="button" data-pin-key="4">4</button>
+              <button class="keypad__key" type="button" data-pin-key="5">5</button>
+              <button class="keypad__key" type="button" data-pin-key="6">6</button>
+              <button class="keypad__key" type="button" data-pin-key="7">7</button>
+              <button class="keypad__key" type="button" data-pin-key="8">8</button>
+              <button class="keypad__key" type="button" data-pin-key="9">9</button>
+              <button class="keypad__key" type="button" data-go="biometrics">···</button>
+              <button class="keypad__key" type="button" data-pin-key="0">0</button>
+              <button class="keypad__key" type="button" data-pin-key="del">⌫</button>
+            </div>
+          </div>
+        </section>
+
+        <!-- BIOMETRICS -->
+        <section class="view auth-screen" data-view="biometrics" aria-label="Biometrics">
+          <header class="app-header">
+            <button class="btn btn--icon" type="button" data-back aria-label="Retour"><span data-icon="i-back"></span></button>
+            <h1 class="app-header__title">Biometrics</h1>
+          </header>
+          <div class="view__scroll">
+            <div class="security-visual">
+              <div class="security-ring" data-icon="i-fingerprint" data-icon-size="xl"></div>
+            </div>
+            <div class="auth-screen__body text-center">
+              <h1>Enable Touch ID</h1>
+              <p class="text-secondary">Unlock E-Chat faster with your fingerprint or Face ID.</p>
+              <button class="btn btn--primary btn--block" type="button" data-go="face-id">Continue</button>
+              <button class="btn btn--ghost btn--block" type="button" data-go="profile-setup">Skip for now</button>
+            </div>
+          </div>
+        </section>
+
+        <!-- FACE ID -->
+        <section class="view auth-screen" data-view="face-id" aria-label="Face ID">
+          <header class="app-header">
+            <button class="btn btn--icon" type="button" data-back aria-label="Retour"><span data-icon="i-back"></span></button>
+            <h1 class="app-header__title">Face ID</h1>
+          </header>
+          <div class="view__scroll">
+            <div class="security-visual">
+              <div class="security-ring" data-icon="i-face" data-icon-size="xl"></div>
+            </div>
+            <div class="auth-screen__body text-center">
+              <h1>Set up Face ID</h1>
+              <p class="text-secondary">Position your face in the frame to finish setup.</p>
+              <button class="btn btn--primary btn--block" type="button" data-go="profile-setup">Enable Face ID</button>
+            </div>
+          </div>
+        </section>
+
+        <!-- PROFILE SETUP -->
+        <section class="view auth-screen" data-view="profile-setup" aria-label="Profile setup">
+          <header class="app-header">
+            <button class="btn btn--icon" type="button" data-back aria-label="Retour"><span data-icon="i-back"></span></button>
+            <h1 class="app-header__title">Your Profile</h1>
+          </header>
+          <div class="view__scroll">
+            <div class="profile-setup">
+              <div class="avatar-upload">
+                <div class="avatar avatar--xl avatar--initials">AJ</div>
+                <button class="avatar-upload__btn" type="button" aria-label="Upload photo"><span data-icon="i-camera"></span></button>
+              </div>
+              <div class="field" style="width:100%">
+                <label class="field__label" for="profile-name">Display name</label>
+                <input class="field__control" id="profile-name" type="text" value="Alex Jordan" />
+              </div>
+              <div class="field" style="width:100%">
+                <label class="field__label" for="profile-status">Status</label>
+                <input class="field__control" id="profile-status" type="text" value="Available" />
+              </div>
+              <button class="btn btn--primary btn--block" type="button" data-go="chats">Finish</button>
+            </div>
+          </div>
+        </section>
+
+        <!-- CHATS -->
+        <section class="view view--chats" data-view="chats" aria-label="Chats">
+          <header class="app-header">
+            <h1 class="app-header__title grow">Chats</h1>
+            <button class="btn btn--icon" type="button" data-go="empty-chats" aria-label="Search view"><span data-icon="i-search"></span></button>
+            <button class="btn btn--icon" type="button" data-go="new-chat" aria-label="New chat"><span data-icon="i-plus"></span></button>
+            <label class="search">
+              <span data-icon="i-search" data-icon-size="sm"></span>
+              <input class="search__input" type="search" placeholder="Search chats" data-search="#chat-list" />
+            </label>
+          </header>
+          <div class="view__scroll">
+            <section class="stories" aria-label="Active now">
+              <button class="story" type="button" data-go="conversation">
+                <span class="story__ring"><span class="avatar avatar--initials">M</span></span>
+                <span class="story__name">Maya</span>
+              </button>
+              <button class="story" type="button" data-go="conversation">
+                <span class="story__ring"><span class="avatar avatar--initials">L</span></span>
+                <span class="story__name">Leo</span>
+              </button>
+              <button class="story" type="button" data-go="conversation">
+                <span class="story__ring"><span class="avatar avatar--initials">S</span></span>
+                <span class="story__name">Sara</span>
+              </button>
+              <button class="story" type="button" data-go="groups">
+                <span class="story__ring"><span class="avatar avatar--initials">G</span></span>
+                <span class="story__name">Design</span>
+              </button>
+            </section>
+            <p class="pinned-label">Pinned</p>
+            <ul class="list chat-list" id="chat-list">
+              <li data-search-item>
+                <button class="list-row is-unread" type="button" data-go="conversation">
+                  <span class="avatar avatar--initials">M<span class="avatar__status"></span></span>
+                  <span class="grow">
+                    <span class="list-row__title truncate">Maya Chen</span>
+                    <span class="list-row__preview truncate">Can we sync tomorrow?</span>
+                  </span>
+                  <span class="list-row__meta">
+                    <span class="list-row__time">10:24</span>
+                    <span class="badge">2</span>
+                  </span>
+                </button>
+              </li>
+              <li data-search-item>
+                <button class="list-row" type="button" data-go="conversation">
+                  <span class="avatar avatar--initials">DG</span>
+                  <span class="grow">
+                    <span class="list-row__title truncate">Design Guild</span>
+                    <span class="list-row__preview truncate">Leo: Shipping the dark mode kit ✨</span>
+                  </span>
+                  <span class="list-row__meta">
+                    <span class="list-row__time">09:12</span>
+                  </span>
+                </button>
+              </li>
+              <li data-search-item>
+                <button class="list-row is-unread" type="button" data-go="conversation">
+                  <span class="avatar avatar--initials">S<span class="avatar__status"></span></span>
+                  <span class="grow">
+                    <span class="list-row__title truncate">Sara Wells</span>
+                    <span class="list-row__preview truncate">Voice message</span>
+                  </span>
+                  <span class="list-row__meta">
+                    <span class="list-row__time">Yesterday</span>
+                    <span class="badge">1</span>
+                  </span>
+                </button>
+              </li>
+              <li data-search-item>
+                <button class="list-row" type="button" data-go="conversation">
+                  <span class="avatar avatar--initials">J</span>
+                  <span class="grow">
+                    <span class="list-row__title truncate">Jordan Lee</span>
+                    <span class="list-row__preview truncate">See you at 5!</span>
+                  </span>
+                  <span class="list-row__meta">
+                    <span class="list-row__time">Mon</span>
+                  </span>
+                </button>
+              </li>
+              <li data-search-item>
+                <button class="list-row" type="button" data-go="conversation">
+                  <span class="avatar avatar--initials">N</span>
+                  <span class="grow">
+                    <span class="list-row__title truncate">Noah Park</span>
+                    <span class="list-row__preview truncate">Thanks for the files</span>
+                  </span>
+                  <span class="list-row__meta">
+                    <span class="list-row__time">Sun</span>
+                  </span>
+                </button>
+              </li>
+            </ul>
+          </div>
+          <button class="fab" type="button" data-go="new-chat" aria-label="New message"><span data-icon="i-edit"></span></button>
+          <nav class="bottom-nav" aria-label="Primary">
+            <a class="bottom-nav__item is-active" href="#/chats" data-go="chats" data-nav="chats"><span data-icon="i-chat"></span>Chats</a>
+            <a class="bottom-nav__item" href="#/calls" data-go="calls" data-nav="calls"><span data-icon="i-phone"></span>Calls</a>
+            <a class="bottom-nav__item" href="#/contacts" data-go="contacts" data-nav="contacts"><span data-icon="i-users"></span>Contacts</a>
+            <a class="bottom-nav__item" href="#/settings" data-go="settings" data-nav="settings"><span data-icon="i-settings"></span>Settings</a>
+          </nav>
+        </section>
+
+        <!-- CONVERSATION -->
+        <section class="view view--conversation" data-view="conversation" aria-label="Conversation">
+          <header class="app-header">
+            <button class="btn btn--icon" type="button" data-go="chats" aria-label="Back"><span data-icon="i-back"></span></button>
+            <span class="avatar avatar--sm avatar--initials">M<span class="avatar__status"></span></span>
+            <div class="grow">
+              <h1 class="app-header__title" style="font-size:1rem">Maya Chen</h1>
+              <p class="app-header__subtitle">Online</p>
+            </div>
+            <button class="btn btn--icon" type="button" data-go="call-audio" aria-label="Audio call"><span data-icon="i-phone"></span></button>
+            <button class="btn btn--icon" type="button" data-go="call-video" aria-label="Video call"><span data-icon="i-video"></span></button>
+          </header>
+          <div class="translation-banner">
+            <span>Live translation: EN → FR</span>
+            <button class="btn btn--sm btn--ghost" type="button" data-go="translation">Manage</button>
+          </div>
+          <div class="view__scroll messages" data-messages>
+            <div class="day-separator">Today</div>
+            <article class="message message--in">
+              <div class="avatar avatar--sm avatar--initials">M</div>
+              <div>
+                <div class="message__bubble">Hey! Did you check the new E-Chat screens?</div>
+                <div class="message__time">10:18</div>
+              </div>
+            </article>
+            <article class="message message--out">
+              <div>
+                <div class="message__bubble">Yes — light &amp; dark look great. Shipping today.</div>
+                <div class="message__time">10:20</div>
+              </div>
+            </article>
+            <article class="message message--in">
+              <div class="avatar avatar--sm avatar--initials">M</div>
+              <div>
+                <div class="message__bubble">Can we sync tomorrow?</div>
+                <div class="message__time">10:24</div>
+              </div>
+            </article>
+          </div>
+          <div class="smart-replies" aria-label="Smart replies">
+            <button class="chip is-active" type="button" data-smart-reply>Sounds good!</button>
+            <button class="chip" type="button" data-smart-reply>Let’s do 10 AM</button>
+            <button class="chip" type="button" data-smart-reply>I’ll send the link</button>
+          </div>
+          <form class="composer" data-chat-form>
+            <button class="btn btn--icon" type="button" aria-label="Attach"><span data-icon="i-attach"></span></button>
+            <button class="btn btn--icon" type="button" aria-label="Emoji"><span data-icon="i-emoji"></span></button>
+            <input class="composer__input" type="text" placeholder="Type a message…" data-chat-input />
+            <button class="btn btn--icon btn--primary" type="submit" aria-label="Send"><span data-icon="i-send"></span></button>
+            <button class="btn btn--icon" type="button" aria-label="Voice" data-go="scheduled"><span data-icon="i-mic"></span></button>
+          </form>
+        </section>
+
+        <!-- CALLS LIST -->
+        <section class="view" data-view="calls" aria-label="Calls">
+          <header class="app-header">
+            <h1 class="app-header__title grow">Calls</h1>
+            <button class="btn btn--icon" type="button" data-go="call-audio" aria-label="New call"><span data-icon="i-phone"></span></button>
+          </header>
+          <div class="view__scroll">
+            <ul class="list call-history">
+              <li>
+                <button class="list-row" type="button" data-go="call-audio">
+                  <span class="avatar avatar--initials">M</span>
+                  <span class="grow">
+                    <span class="list-row__title">Maya Chen</span>
+                    <span class="list-row__preview"><span data-icon="i-incoming" data-icon-size="sm"></span> Incoming · 2m</span>
+                  </span>
+                  <span class="list-row__meta"><span class="list-row__time">10:02</span></span>
+                </button>
+              </li>
+              <li>
+                <button class="list-row" type="button" data-go="call-video">
+                  <span class="avatar avatar--initials">L</span>
+                  <span class="grow">
+                    <span class="list-row__title">Leo Tran</span>
+                    <span class="list-row__preview"><span data-icon="i-video" data-icon-size="sm"></span> Video · 14m</span>
+                  </span>
+                  <span class="list-row__meta"><span class="list-row__time">Yesterday</span></span>
+                </button>
+              </li>
+              <li>
+                <button class="list-row" type="button" data-go="call-audio">
+                  <span class="avatar avatar--initials">S</span>
+                  <span class="grow">
+                    <span class="list-row__title missed">Sara Wells</span>
+                    <span class="list-row__preview missed"><span data-icon="i-incoming" data-icon-size="sm"></span> Missed</span>
+                  </span>
+                  <span class="list-row__meta"><span class="list-row__time">Mon</span></span>
+                </button>
+              </li>
+            </ul>
+          </div>
+          <nav class="bottom-nav" aria-label="Primary">
+            <a class="bottom-nav__item" href="#/chats" data-go="chats" data-nav="chats"><span data-icon="i-chat"></span>Chats</a>
+            <a class="bottom-nav__item is-active" href="#/calls" data-go="calls" data-nav="calls"><span data-icon="i-phone"></span>Calls</a>
+            <a class="bottom-nav__item" href="#/contacts" data-go="contacts" data-nav="contacts"><span data-icon="i-users"></span>Contacts</a>
+            <a class="bottom-nav__item" href="#/settings" data-go="settings" data-nav="settings"><span data-icon="i-settings"></span>Settings</a>
+          </nav>
+        </section>
+
+        <!-- AUDIO CALL -->
+        <section class="view view--call" data-view="call-audio" aria-label="Audio call">
+          <header class="app-header">
+            <button class="btn btn--icon" type="button" data-go="conversation" aria-label="Minimize"><span data-icon="i-back"></span></button>
+            <h1 class="app-header__title grow">E-Chat Call</h1>
+          </header>
+          <div class="call-stage">
+            <div class="avatar avatar--xl avatar--initials">M</div>
+            <h2>Maya Chen</h2>
+            <p>Calling… 00:12</p>
+          </div>
+          <div class="call-controls">
+            <button class="btn btn--icon" type="button" aria-label="Mute"><span data-icon="i-mute"></span></button>
+            <button class="btn btn--icon" type="button" aria-label="Speaker"><span data-icon="i-speaker"></span></button>
+            <button class="btn btn--icon btn--danger" type="button" data-go="conversation" aria-label="End call"><span data-icon="i-end-call"></span></button>
+          </div>
+        </section>
+
+        <!-- VIDEO CALL -->
+        <section class="view view--call" data-view="call-video" aria-label="Video call">
+          <header class="app-header">
+            <button class="btn btn--icon" type="button" data-go="conversation" aria-label="Back"><span data-icon="i-back"></span></button>
+            <div class="grow">
+              <h1 class="app-header__title" style="font-size:1rem">Maya Chen</h1>
+              <p class="app-header__subtitle">00:42</p>
+            </div>
+          </header>
+          <div class="video-stage">
+            <div class="call-stage">
+              <div class="avatar avatar--xl avatar--initials">M</div>
+              <h2>Maya Chen</h2>
+            </div>
+            <div class="video-pip" aria-label="Your camera">
+              <div class="avatar avatar--initials">AJ</div>
+            </div>
+          </div>
+          <div class="call-controls">
+            <button class="btn btn--icon" type="button" aria-label="Mute"><span data-icon="i-mute"></span></button>
+            <button class="btn btn--icon" type="button" aria-label="Camera"><span data-icon="i-camera"></span></button>
+            <button class="btn btn--icon btn--danger" type="button" data-go="conversation" aria-label="End call"><span data-icon="i-end-call"></span></button>
+          </div>
+        </section>
+
+        <!-- CONTACTS -->
+        <section class="view" data-view="contacts" aria-label="Contacts">
+          <header class="app-header">
+            <h1 class="app-header__title grow">Contacts</h1>
+            <button class="btn btn--icon" type="button" data-go="invite" aria-label="Invite"><span data-icon="i-plus"></span></button>
+          </header>
+          <div class="section-pad" style="padding-bottom:0">
+            <label class="search">
+              <span data-icon="i-search" data-icon-size="sm"></span>
+              <input class="search__input" type="search" placeholder="Search contacts" data-search="#contact-list" />
+            </label>
+          </div>
+          <div class="view__scroll" style="position:relative">
+            <div class="alpha-index" aria-hidden="true">A B C J L M N S</div>
+            <ul class="list" id="contact-list">
+              <li class="contact-section-title">A</li>
+              <li data-search-item>
+                <button class="list-row" type="button" data-go="conversation">
+                  <span class="avatar avatar--initials">A</span>
+                  <span class="grow"><span class="list-row__title">Ava Brooks</span><span class="list-row__preview">Hey there! I’m using E-Chat</span></span>
+                </button>
+              </li>
+              <li class="contact-section-title">J</li>
+              <li data-search-item>
+                <button class="list-row" type="button" data-go="conversation">
+                  <span class="avatar avatar--initials">J</span>
+                  <span class="grow"><span class="list-row__title">Jordan Lee</span><span class="list-row__preview">Available</span></span>
+                </button>
+              </li>
+              <li class="contact-section-title">M</li>
+              <li data-search-item>
+                <button class="list-row" type="button" data-go="conversation">
+                  <span class="avatar avatar--initials">M</span>
+                  <span class="grow"><span class="list-row__title">Maya Chen</span><span class="list-row__preview">Online</span></span>
+                  <span class="badge" style="background:transparent;color:var(--color-online)">●</span>
+                </button>
+              </li>
+              <li data-search-item>
+                <button class="list-row" type="button" data-go="new-group">
+                  <span class="avatar avatar--initials">+</span>
+                  <span class="grow"><span class="list-row__title">Create new group</span><span class="list-row__preview">Add friends to a group chat</span></span>
+                  <span class="list-row__chevron" data-icon="i-chevron"></span>
+                </button>
+              </li>
+            </ul>
+          </div>
+          <nav class="bottom-nav" aria-label="Primary">
+            <a class="bottom-nav__item" href="#/chats" data-go="chats" data-nav="chats"><span data-icon="i-chat"></span>Chats</a>
+            <a class="bottom-nav__item" href="#/calls" data-go="calls" data-nav="calls"><span data-icon="i-phone"></span>Calls</a>
+            <a class="bottom-nav__item is-active" href="#/contacts" data-go="contacts" data-nav="contacts"><span data-icon="i-users"></span>Contacts</a>
+            <a class="bottom-nav__item" href="#/settings" data-go="settings" data-nav="settings"><span data-icon="i-settings"></span>Settings</a>
+          </nav>
+        </section>
+
+        <!-- NEW GROUP -->
+        <section class="view" data-view="new-group" aria-label="New group">
+          <header class="app-header">
+            <button class="btn btn--icon" type="button" data-back aria-label="Back"><span data-icon="i-back"></span></button>
+            <h1 class="app-header__title grow">New Group</h1>
+            <button class="btn btn--sm btn--primary" type="button" data-go="groups">Create</button>
+          </header>
+          <div class="group-selected" data-group-selected aria-label="Selected members"></div>
+          <div class="view__scroll">
+            <ul class="list">
+              <li>
+                <button class="list-row" type="button" data-group-toggle="maya" data-name="Maya Chen">
+                  <span class="avatar avatar--initials">M</span>
+                  <span class="grow"><span class="list-row__title">Maya Chen</span></span>
+                  <span class="check-mark" data-icon="i-check" data-icon-size="sm"></span>
+                </button>
+              </li>
+              <li>
+                <button class="list-row" type="button" data-group-toggle="leo" data-name="Leo Tran">
+                  <span class="avatar avatar--initials">L</span>
+                  <span class="grow"><span class="list-row__title">Leo Tran</span></span>
+                  <span class="check-mark" data-icon="i-check" data-icon-size="sm"></span>
+                </button>
+              </li>
+              <li>
+                <button class="list-row" type="button" data-group-toggle="sara" data-name="Sara Wells">
+                  <span class="avatar avatar--initials">S</span>
+                  <span class="grow"><span class="list-row__title">Sara Wells</span></span>
+                  <span class="check-mark" data-icon="i-check" data-icon-size="sm"></span>
+                </button>
+              </li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- GROUPS -->
+        <section class="view" data-view="groups" aria-label="Groups">
+          <header class="app-header">
+            <button class="btn btn--icon" type="button" data-go="chats" aria-label="Back"><span data-icon="i-back"></span></button>
+            <h1 class="app-header__title grow">Groups</h1>
+            <button class="btn btn--icon" type="button" data-go="new-group" aria-label="New group"><span data-icon="i-plus"></span></button>
+          </header>
+          <div class="view__scroll">
+            <ul class="list">
+              <li>
+                <button class="list-row" type="button" data-go="conversation">
+                  <span class="avatar avatar--initials">DG</span>
+                  <span class="grow"><span class="list-row__title">Design Guild</span><span class="list-row__preview">12 members</span></span>
+                  <span class="badge">3</span>
+                </button>
+              </li>
+              <li>
+                <button class="list-row" type="button" data-go="conversation">
+                  <span class="avatar avatar--initials">PR</span>
+                  <span class="grow"><span class="list-row__title">Product Room</span><span class="list-row__preview">8 members</span></span>
+                </button>
+              </li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- INVITE -->
+        <section class="view" data-view="invite" aria-label="Invite friends">
+          <header class="app-header">
+            <button class="btn btn--icon" type="button" data-back aria-label="Back"><span data-icon="i-back"></span></button>
+            <h1 class="app-header__title">Invite Friends</h1>
+          </header>
+          <div class="view__scroll">
+            <div class="section-pad text-center">
+              <h2>Share E-Chat</h2>
+              <p class="text-secondary">Invite friends via your favorite apps</p>
+            </div>
+            <div class="invite-grid">
+              <button class="invite-item" type="button"><span class="invite-item__icon"><strong>Wa</strong></span>WhatsApp</button>
+              <button class="invite-item" type="button"><span class="invite-item__icon"><strong>Tg</strong></span>Telegram</button>
+              <button class="invite-item" type="button"><span class="invite-item__icon" data-icon="i-mail"></span>Email</button>
+              <button class="invite-item" type="button"><span class="invite-item__icon"><strong>X</strong></span>X</button>
+              <button class="invite-item" type="button"><span class="invite-item__icon"><strong>in</strong></span>LinkedIn</button>
+              <button class="invite-item" type="button"><span class="invite-item__icon" data-icon="i-plus"></span>More</button>
+            </div>
+          </div>
+        </section>
+
+        <!-- SETTINGS -->
+        <section class="view" data-view="settings" aria-label="Settings">
+          <header class="app-header">
+            <h1 class="app-header__title grow">Settings</h1>
+            <button class="btn btn--icon" type="button" data-modal-open="#notify-modal" aria-label="Notifications"><span data-icon="i-bell"></span></button>
+          </header>
+          <div class="view__scroll">
+            <div class="profile-card">
+              <div class="avatar avatar--lg avatar--initials">AJ</div>
+              <div class="grow">
+                <h2>Alex Jordan</h2>
+                <p>Available · @alex</p>
+              </div>
+              <button class="btn btn--icon" type="button" data-go="profile-setup" aria-label="Edit"><span data-icon="i-edit"></span></button>
+            </div>
+
+            <div class="settings-group">
+              <p class="settings-group__title">Account</p>
+              <button class="list-row" type="button" data-go="security">
+                <span data-icon="i-lock"></span>
+                <span class="grow"><span class="list-row__title">Security</span></span>
+                <span class="list-row__chevron" data-icon="i-chevron"></span>
+              </button>
+              <button class="list-row" type="button" data-go="help">
+                <span data-icon="i-help"></span>
+                <span class="grow"><span class="list-row__title">Help Center</span></span>
+                <span class="list-row__chevron" data-icon="i-chevron"></span>
+              </button>
+            </div>
+
+            <div class="settings-group">
+              <p class="settings-group__title">Preferences</p>
+              <div class="list-row">
+                <span data-icon="i-bell"></span>
+                <span class="grow"><span class="list-row__title">Notifications</span></span>
+                <label class="toggle"><input type="checkbox" checked /><span class="toggle__track"></span></label>
+              </div>
+              <div class="list-row">
+                <span data-icon="i-moon"></span>
+                <span class="grow"><span class="list-row__title">Dark mode</span></span>
+                <button class="btn btn--sm btn--ghost" type="button" data-theme-toggle>Toggle</button>
+              </div>
+            </div>
+
+            <div class="settings-group">
+              <p class="settings-group__title">Explore</p>
+              <button class="list-row" type="button" data-go="features">
+                <span data-icon="i-globe"></span>
+                <span class="grow"><span class="list-row__title">Smart features</span></span>
+                <span class="list-row__chevron" data-icon="i-chevron"></span>
+              </button>
+              <button class="list-row" type="button" data-go="marketplace">
+                <span data-icon="i-shop"></span>
+                <span class="grow"><span class="list-row__title">Marketplace</span></span>
+                <span class="list-row__chevron" data-icon="i-chevron"></span>
+              </button>
+            </div>
+          </div>
+          <nav class="bottom-nav" aria-label="Primary">
+            <a class="bottom-nav__item" href="#/chats" data-go="chats" data-nav="chats"><span data-icon="i-chat"></span>Chats</a>
+            <a class="bottom-nav__item" href="#/calls" data-go="calls" data-nav="calls"><span data-icon="i-phone"></span>Calls</a>
+            <a class="bottom-nav__item" href="#/contacts" data-go="contacts" data-nav="contacts"><span data-icon="i-users"></span>Contacts</a>
+            <a class="bottom-nav__item is-active" href="#/settings" data-go="settings" data-nav="settings"><span data-icon="i-settings"></span>Settings</a>
+          </nav>
+
+          <div class="modal" id="notify-modal" role="dialog" aria-modal="true" aria-labelledby="notify-title">
+            <div class="modal__panel">
+              <h2 id="notify-title">Allow notifications?</h2>
+              <p class="text-secondary" style="margin:12px 0 20px">Stay updated when friends message you on E-Chat.</p>
+              <button class="btn btn--primary btn--block" type="button" data-modal-close>Allow</button>
+              <button class="btn btn--ghost btn--block" type="button" data-modal-close style="margin-top:8px">Not now</button>
+            </div>
+          </div>
+        </section>
+
+        <!-- SECURITY -->
+        <section class="view" data-view="security" aria-label="Security settings">
+          <header class="app-header app-header--blue">
+            <button class="btn btn--icon" type="button" data-back aria-label="Back"><span data-icon="i-back"></span></button>
+            <h1 class="app-header__title">Security</h1>
+          </header>
+          <div class="view__scroll">
+            <div class="list">
+              <div class="list-row">
+                <span class="grow"><span class="list-row__title">Face ID</span></span>
+                <label class="toggle"><input type="checkbox" checked /><span class="toggle__track"></span></label>
+              </div>
+              <div class="list-row">
+                <span class="grow"><span class="list-row__title">Touch ID</span></span>
+                <label class="toggle"><input type="checkbox" checked /><span class="toggle__track"></span></label>
+              </div>
+              <div class="list-row">
+                <span class="grow"><span class="list-row__title">Remember me</span></span>
+                <label class="toggle"><input type="checkbox" /><span class="toggle__track"></span></label>
+              </div>
+              <button class="list-row" type="button" data-go="pin">
+                <span class="grow"><span class="list-row__title">Change PIN</span></span>
+                <span class="list-row__chevron" data-icon="i-chevron"></span>
+              </button>
+            </div>
+            <div class="section-pad">
+              <button class="btn btn--primary btn--block" type="button" data-go="settings">Save Changes</button>
+            </div>
+          </div>
+        </section>
+
+        <!-- HELP -->
+        <section class="view" data-view="help" aria-label="Help center">
+          <header class="app-header app-header--blue">
+            <button class="btn btn--icon" type="button" data-back aria-label="Back"><span data-icon="i-back"></span></button>
+            <h1 class="app-header__title">Help Center</h1>
+          </header>
+          <div class="chip-row">
+            <button class="chip is-active" type="button">FAQ</button>
+            <button class="chip" type="button">Contact Us</button>
+            <button class="chip" type="button">Privacy</button>
+          </div>
+          <div class="view__scroll">
+            <details class="help-item" open>
+              <summary>How do I enable dark mode?<span data-icon="i-chevron"></span></summary>
+              <p>Open Settings and tap Toggle next to Dark mode, or use the sun/moon button on any screen.</p>
+            </details>
+            <details class="help-item">
+              <summary>Can I create group chats?<span data-icon="i-chevron"></span></summary>
+              <p>Yes. Go to Contacts → Create new group, select members, then Create.</p>
+            </details>
+            <details class="help-item">
+              <summary>How does live translation work?<span data-icon="i-chevron"></span></summary>
+              <p>Open a conversation and manage translation from the banner above the messages.</p>
+            </details>
+          </div>
+        </section>
+
+        <!-- FEATURES -->
+        <section class="view" data-view="features" aria-label="Smart features">
+          <header class="app-header">
+            <button class="btn btn--icon" type="button" data-back aria-label="Back"><span data-icon="i-back"></span></button>
+            <h1 class="app-header__title">Smart Features</h1>
+          </header>
+          <div class="view__scroll">
+            <div class="feature-grid">
+              <button class="feature-card" type="button" data-go="conversation">
+                <span class="feature-card__icon" data-icon="i-chat"></span>
+                <h3>Smart Replies</h3>
+                <p>Suggested answers while you chat.</p>
+              </button>
+              <button class="feature-card" type="button" data-go="translation">
+                <span class="feature-card__icon" data-icon="i-globe"></span>
+                <h3>Live Translation</h3>
+                <p>Translate messages in real time.</p>
+              </button>
+              <button class="feature-card" type="button" data-go="scheduled">
+                <span class="feature-card__icon" data-icon="i-calendar"></span>
+                <h3>Scheduled</h3>
+                <p>Send messages later automatically.</p>
+              </button>
+              <button class="feature-card" type="button" data-go="marketplace">
+                <span class="feature-card__icon" data-icon="i-shop"></span>
+                <h3>Marketplace</h3>
+                <p>Discover stickers &amp; themes.</p>
+              </button>
+            </div>
+          </div>
+        </section>
+
+        <!-- TRANSLATION -->
+        <section class="view" data-view="translation" aria-label="Live translation">
+          <header class="app-header">
+            <button class="btn btn--icon" type="button" data-back aria-label="Back"><span data-icon="i-back"></span></button>
+            <h1 class="app-header__title">Live Translation</h1>
+          </header>
+          <div class="view__scroll section-pad stack">
+            <div class="card stack">
+              <h2>Translate from</h2>
+              <select class="field__control">
+                <option>English</option>
+                <option>French</option>
+                <option>Spanish</option>
+              </select>
+              <h2>Translate to</h2>
+              <select class="field__control">
+                <option>French</option>
+                <option>English</option>
+                <option>German</option>
+              </select>
+              <label class="list-row" style="padding:0;border:0">
+                <span class="grow"><span class="list-row__title">Auto-detect language</span></span>
+                <span class="toggle"><input type="checkbox" checked /><span class="toggle__track"></span></span>
+              </label>
+            </div>
+            <button class="btn btn--primary btn--block" type="button" data-go="conversation">Apply</button>
+          </div>
+        </section>
+
+        <!-- SCHEDULED -->
+        <section class="view" data-view="scheduled" aria-label="Scheduled messages">
+          <header class="app-header">
+            <button class="btn btn--icon" type="button" data-back aria-label="Back"><span data-icon="i-back"></span></button>
+            <h1 class="app-header__title">Scheduled</h1>
+          </header>
+          <div class="view__scroll">
+            <article class="schedule-card">
+              <h3>To Maya Chen</h3>
+              <p class="text-secondary">“Let’s review the UI kit tomorrow.”</p>
+              <p class="text-muted" style="margin-top:8px;font-size:12px">Tomorrow · 09:00</p>
+            </article>
+            <article class="schedule-card">
+              <h3>To Design Guild</h3>
+              <p class="text-secondary">“Dark mode tokens are ready.”</p>
+              <p class="text-muted" style="margin-top:8px;font-size:12px">Fri · 18:30</p>
+            </article>
+            <div class="section-pad">
+              <button class="btn btn--primary btn--block" type="button" data-go="conversation">Schedule new</button>
+            </div>
+          </div>
+        </section>
+
+        <!-- MARKETPLACE -->
+        <section class="view" data-view="marketplace" aria-label="Marketplace">
+          <header class="app-header">
+            <button class="btn btn--icon" type="button" data-back aria-label="Back"><span data-icon="i-back"></span></button>
+            <h1 class="app-header__title">Marketplace</h1>
+          </header>
+          <div class="chip-row">
+            <button class="chip is-active" type="button">Themes</button>
+            <button class="chip" type="button">Stickers</button>
+            <button class="chip" type="button">Community</button>
+          </div>
+          <div class="view__scroll">
+            <article class="marketplace-item">
+              <div class="marketplace-item__thumb" data-icon="i-moon"></div>
+              <div>
+                <h3>Midnight Blue</h3>
+                <p class="text-secondary">Dark theme pack</p>
+              </div>
+              <button class="btn btn--sm btn--primary" type="button">Get</button>
+            </article>
+            <article class="marketplace-item">
+              <div class="marketplace-item__thumb" data-icon="i-emoji"></div>
+              <div>
+                <h3>Soft Stickers</h3>
+                <p class="text-secondary">24 animated stickers</p>
+              </div>
+              <button class="btn btn--sm btn--primary" type="button">Get</button>
+            </article>
+            <article class="marketplace-item">
+              <div class="marketplace-item__thumb" data-icon="i-users"></div>
+              <div>
+                <h3>Community Hub</h3>
+                <p class="text-secondary">Join public channels</p>
+              </div>
+              <button class="btn btn--sm btn--ghost" type="button" data-go="groups">Open</button>
+            </article>
+          </div>
+        </section>
+
+        <!-- EMPTY CHATS -->
+        <section class="view" data-view="empty-chats" aria-label="Empty chats">
+          <header class="app-header">
+            <button class="btn btn--icon" type="button" data-go="chats" aria-label="Back"><span data-icon="i-back"></span></button>
+            <h1 class="app-header__title">Search</h1>
+          </header>
+          <div class="view__scroll">
+            <div class="empty-state">
+              <div class="empty-state__icon" data-icon="i-search" data-icon-size="lg"></div>
+              <h2>No results</h2>
+              <p>Try another name or start a new conversation.</p>
+              <button class="btn btn--primary" type="button" data-go="new-chat">New chat</button>
+            </div>
+            <div class="section-pad">
+              <div class="skeleton" style="height:64px;margin-bottom:12px"></div>
+              <div class="skeleton" style="height:64px;margin-bottom:12px"></div>
+              <div class="skeleton" style="height:64px"></div>
+            </div>
+          </div>
+        </section>
+
+        <!-- NEW CHAT -->
+        <section class="view" data-view="new-chat" aria-label="New chat">
+          <header class="app-header">
+            <button class="btn btn--icon" type="button" data-back aria-label="Back"><span data-icon="i-back"></span></button>
+            <h1 class="app-header__title grow">New Chat</h1>
+          </header>
+          <div class="section-pad">
+            <label class="search">
+              <span data-icon="i-search" data-icon-size="sm"></span>
+              <input class="search__input" type="search" placeholder="Type a name" />
+            </label>
+          </div>
+          <div class="view__scroll">
+            <ul class="list">
+              <li>
+                <button class="list-row" type="button" data-go="conversation">
+                  <span class="avatar avatar--initials">M</span>
+                  <span class="grow"><span class="list-row__title">Maya Chen</span></span>
+                </button>
+              </li>
+              <li>
+                <button class="list-row" type="button" data-go="conversation">
+                  <span class="avatar avatar--initials">L</span>
+                  <span class="grow"><span class="list-row__title">Leo Tran</span></span>
+                </button>
+              </li>
+              <li>
+                <button class="list-row" type="button" data-go="new-group">
+                  <span class="avatar avatar--initials">+</span>
+                  <span class="grow"><span class="list-row__title">New Group</span></span>
+                </button>
+              </li>
+            </ul>
+          </div>
+        </section>
+      </div>
+    </div>
+  </div>
+
+  <script src="../js/theme.js"></script>
+  <script src="../js/router.js"></script>
+  <script src="../js/chat.js"></script>
+  <script src="../js/app.js"></script>
+</body>
+</html>

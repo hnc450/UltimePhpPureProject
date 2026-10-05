@@ -14,7 +14,8 @@
         "robmorgan/phinx": "^0.16.12",
         "crunzphp/crunz": "^3.9",
         "predis/predis": "^3.6",
-        "vlucas/phpdotenv": "^5.7"
+        "vlucas/phpdotenv": "^5.7",
+        "vlucas/valitron": "^1.4"
     },
     "require-dev": {
         "symfony/var-dumper": "^8.1",
