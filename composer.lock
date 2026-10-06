@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "19eae4b56f6428b52c8630bf05335b09",
+    "content-hash": "2622a81cdc1c95a76b9649f7cc051c79",
     "packages": [
         {
             "name": "altorouter/altorouter",
@@ -1466,6 +1466,53 @@
                 }
             ],
             "time": "2026-03-19T18:52:39+00:00"
+        },
+        {
+            "name": "octha/obfuscator",
+            "version": "dev-main",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/zunqco/obfuscator.git",
+                "reference": "b541aafc1f2111c1eefe7f5232c5fb56825cf2ac"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/zunqco/obfuscator/zipball/b541aafc1f2111c1eefe7f5232c5fb56825cf2ac",
+                "reference": "b541aafc1f2111c1eefe7f5232c5fb56825cf2ac",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.6"
+            },
+            "default-branch": true,
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Octha\\Obfuscator\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Lucas Nicolau",
+                    "email": "lucas@octha.com"
+                }
+            ],
+            "description": "Protect your javascript source code with the simplest and fastest way.",
+            "homepage": "https://github.com/octhahq/obfuscator",
+            "keywords": [
+                "javascript",
+                "obfuscator",
+                "ofuscator"
+            ],
+            "support": {
+                "issues": "https://github.com/zunqco/obfuscator/issues",
+                "source": "https://github.com/zunqco/obfuscator/tree/main"
+            },
+            "time": "2022-04-21T07:14:48+00:00"
         },
         {
             "name": "phpoption/phpoption",
@@ -7080,8 +7127,10 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": {},
-    "prefer-stable": false,
+    "stability-flags": {
+        "octha/obfuscator": 20
+    },
+    "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {},
     "platform-dev": {},

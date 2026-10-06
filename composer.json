@@ -15,7 +15,8 @@
         "crunzphp/crunz": "^3.9",
         "predis/predis": "^3.6",
         "vlucas/phpdotenv": "^5.7",
-        "vlucas/valitron": "^1.4"
+        "vlucas/valitron": "^1.4",
+        "octha/obfuscator": "dev-main"
     },
     "require-dev": {
         "symfony/var-dumper": "^8.1",
